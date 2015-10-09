@@ -11,9 +11,13 @@ package adm.trabajos;
  */
 public interface XmlConstants {
 
-    public final String TAG_TRABAJOS = "trabajos";
-    public final String TAG_TRABAJO = "trabajo";
-    public final String TAG_RUTA = "ruta";
-    public final String ATTRIBUTE_CONTENIDO = "contenido";
+    public final String TAG_JOBS = "trabajos";
+    public final String TAG_JOB = "trabajo";
+    public final String TAG_PATH = "ruta";
+    public final String TAG_FILE = "archivo";
+    public final String TAG_BUDGET_PICTURES = "fotos_presupuesto";
+    public final String TAG_PROCESS_PICTURES = "fotos_trabajo";
+    public final String TAG_PICTURE = "foto";
+    public final String ATTRIBUTE_VALUE = "valor";
 
 }

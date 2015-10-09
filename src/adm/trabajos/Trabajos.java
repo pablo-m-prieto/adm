@@ -38,12 +38,12 @@ public class Trabajos implements XmlConstants, IConfig {
         File[] dirs = directory.listFiles((File pathname) -> pathname.isDirectory());
 
         //creo el nuevo documento
-        Element tagTrabajos = new Element(TAG_TRABAJOS);
+        Element tagTrabajos = new Element(TAG_JOBS);
         configDoc = new Document(tagTrabajos);
 
         for (File dir : dirs) {
-            Element tagTrabajo = new Element(TAG_TRABAJO);
-            Element tagRuta = new Element(TAG_RUTA);
+            Element tagTrabajo = new Element(TAG_JOB);
+            Element tagRuta = new Element(TAG_PATH);
             tagRuta.setAttribute(ATTRIBUTE_CONTENIDO, dir.getPath());
             tagTrabajo.addContent(tagRuta);
             tagTrabajos.addContent(tagTrabajo);
