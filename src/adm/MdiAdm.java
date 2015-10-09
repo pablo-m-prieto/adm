@@ -5,7 +5,7 @@
  */
 package adm;
 
-import adm.trabajos.Trabajos;
+import adm.jobs.Jobs;
 import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -42,7 +42,7 @@ public class MdiAdm extends javax.swing.JFrame {
         JFileChooser chooser = new JFileChooser();
         chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         if (chooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
-            Trabajos trabajos = new Trabajos(chooser.getSelectedFile());
+            Jobs trabajos = new Jobs(chooser.getSelectedFile());
             IfTrabajos it = new IfTrabajos(trabajos);
             it.setSize(this.getContentPane().getSize());
             it.setVisible(true);

@@ -5,9 +5,9 @@
  */
 package adm.pictures;
 
-import adm.trabajos.IConfig;
-import adm.trabajos.IDirStructure;
-import adm.trabajos.XmlConstants;
+import adm.jobs.IConfig;
+import adm.jobs.IDirStructure;
+import adm.jobs.Constants;
 import java.io.File;
 import java.io.FilenameFilter;
 import java.util.ArrayList;
@@ -18,12 +18,17 @@ import org.jdom2.Element;
  *
  * @author usuario
  */
-public class Pictures implements XmlConstants, IConfig, IDirStructure {
+public class Pictures implements Constants, IConfig, IDirStructure {
 
     private String name;
     private Element config;
     private File path;
     ArrayList<Picture> pictures = new ArrayList<>();
+
+    public Pictures(String name, File path) {
+        this.name = name;
+        this.path = path;
+    }
 
     @Override
     public Element getConfig() {
@@ -55,7 +60,6 @@ public class Pictures implements XmlConstants, IConfig, IDirStructure {
                 }
                 return false;
             }
-
         }
 
         config.removeChildren(TAG_PICTURE);
@@ -73,7 +77,7 @@ public class Pictures implements XmlConstants, IConfig, IDirStructure {
 
     @Override
     public boolean writeStructure() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return path.mkdir();
     }
 
 }

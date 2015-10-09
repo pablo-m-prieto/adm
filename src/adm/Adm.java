@@ -5,7 +5,7 @@
  */
 package adm;
 
-import adm.trabajos.Trabajos;
+import adm.jobs.Jobs;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -28,10 +28,10 @@ public class Adm {
 
     public final String PATH = "C:\\Documents and Settings\\usuario\\Escritorio\\trabajos";
 
-    public Trabajos trabajos;
+    public Jobs trabajos;
 
     public Adm() {
-        trabajos = new Trabajos(new File(PATH));
+        trabajos = new Jobs(new File(PATH));
         try {
             trabajos.readConfigDoc();
         } catch (Exception ex) {

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package adm.trabajos;
+package adm.jobs;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,16 +20,16 @@ import org.jdom2.output.XMLOutputter;
  *
  * @author usuario
  */
-public class Trabajos implements XmlConstants, IConfig {
+public class Jobs implements Constants, IConfig {
 
     public final String CONFIG_FILENAME = "config.xml";
 
     private File directory;
     private Document configDoc;
     private Element config;
-    private ArrayList<Trabajo> trabajos = new ArrayList<>();
+    private ArrayList<Job> trabajos = new ArrayList<>();
 
-    public Trabajos(File directory) {
+    public Jobs(File directory) {
         this.directory = directory;
     }
 
@@ -44,7 +44,7 @@ public class Trabajos implements XmlConstants, IConfig {
         for (File dir : dirs) {
             Element tagTrabajo = new Element(TAG_JOB);
             Element tagRuta = new Element(TAG_PATH);
-            tagRuta.setAttribute(ATTRIBUTE_CONTENIDO, dir.getPath());
+            tagRuta.setAttribute(ATTRIBUTE_VALUE, dir.getPath());
             tagTrabajo.addContent(tagRuta);
             tagTrabajos.addContent(tagTrabajo);
         }
@@ -79,13 +79,13 @@ public class Trabajos implements XmlConstants, IConfig {
     /**
      * @return the trabajos
      */
-    public ArrayList<Trabajo> getTrabajos() {
+    public ArrayList<Job> getTrabajos() {
         return trabajos;
     }
 
-    public Trabajo addTrabajo(String name) {
-        Trabajo trabajo = null;
-        for (Trabajo t : trabajos) {
+    public Job addTrabajo(String name) {
+        Job trabajo = null;
+        for (Job t : trabajos) {
             if (t.getName().equals(name)) {
                 trabajo = t;
                 break;

@@ -5,7 +5,7 @@
  */
 package adm;
 
-import adm.trabajos.Trabajos;
+import adm.jobs.Jobs;
 import java.util.ArrayList;
 import javax.swing.event.TreeModelListener;
 import javax.swing.tree.TreeModel;
@@ -19,10 +19,10 @@ public class IfTrabajos extends javax.swing.JInternalFrame {
 
     private class TrabajosTreeModel implements TreeModel {
 
-        Trabajos trabajos;
+        Jobs trabajos;
         ArrayList<TreeModelListener> listeners = new ArrayList<>();
 
-        public TrabajosTreeModel(Trabajos trabajos) {
+        public TrabajosTreeModel(Jobs trabajos) {
             this.trabajos = trabajos;
         }
 
@@ -33,23 +33,23 @@ public class IfTrabajos extends javax.swing.JInternalFrame {
 
         @Override
         public Object getChild(Object parent, int index) {
-            if (parent instanceof Trabajos) {
-                return ((Trabajos) parent).get(index);
+            if (parent instanceof Jobs) {
+                return ((Jobs) parent).get(index);
             }
             return null;
         }
 
         @Override
         public int getChildCount(Object parent) {
-            if (parent instanceof Trabajos) {
-                return ((Trabajos) parent).size();
+            if (parent instanceof Jobs) {
+                return ((Jobs) parent).size();
             }
             return 0;
         }
 
         @Override
         public boolean isLeaf(Object node) {
-            if (node instanceof Trabajos) {
+            if (node instanceof Jobs) {
                 return false;
             } else {
                 return true;
@@ -63,8 +63,8 @@ public class IfTrabajos extends javax.swing.JInternalFrame {
 
         @Override
         public int getIndexOfChild(Object parent, Object child) {
-            if (parent instanceof Trabajos) {
-                return ((Trabajos) parent).indexOf(child);
+            if (parent instanceof Jobs) {
+                return ((Jobs) parent).indexOf(child);
             }
             return 0;
         }
@@ -81,9 +81,9 @@ public class IfTrabajos extends javax.swing.JInternalFrame {
 
     }
 
-    private Trabajos trabajos;
+    private Jobs trabajos;
 
-    public IfTrabajos(Trabajos trabajos) {
+    public IfTrabajos(Jobs trabajos) {
         initComponents();
         setTrabajos(trabajos);
     }
@@ -91,14 +91,14 @@ public class IfTrabajos extends javax.swing.JInternalFrame {
     /**
      * @return the trabajos
      */
-    public Trabajos getTrabajos() {
+    public Jobs getTrabajos() {
         return trabajos;
     }
 
     /**
      * @param trabajos the trabajos to set
      */
-    public void setTrabajos(Trabajos trabajos) {
+    public void setTrabajos(Jobs trabajos) {
         this.trabajos = trabajos;
         tree.setModel(new TrabajosTreeModel(trabajos));
     }
